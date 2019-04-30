@@ -13,6 +13,7 @@
 		1E44E1E322789177003B4413 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E44E1E222789177003B4413 /* Assets.xcassets */; };
 		1E44E1E622789177003B4413 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E44E1E422789177003B4413 /* LaunchScreen.storyboard */; };
 		1E44E1EE227896CB003B4413 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E44E1ED227896CB003B4413 /* CustomNavigationController.swift */; };
+		1E44E1F02278A56D003B4413 /* CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E44E1EF2278A56D003B4413 /* CustomColors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		1E44E1E522789177003B4413 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1E44E1E722789177003B4413 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1E44E1ED227896CB003B4413 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
+		1E44E1EF2278A56D003B4413 /* CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				1E44E1E222789177003B4413 /* Assets.xcassets */,
 				1E44E1E422789177003B4413 /* LaunchScreen.storyboard */,
 				1E44E1E722789177003B4413 /* Info.plist */,
+				1E44E1EF2278A56D003B4413 /* CustomColors.swift */,
 			);
 			path = "Core Data Course";
 			sourceTree = "<group>";
@@ -140,6 +143,7 @@
 			files = (
 				1E44E1EE227896CB003B4413 /* CustomNavigationController.swift in Sources */,
 				1E44E1DE22789176003B4413 /* ViewController.swift in Sources */,
+				1E44E1F02278A56D003B4413 /* CustomColors.swift in Sources */,
 				1E44E1DC22789176003B4413 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
