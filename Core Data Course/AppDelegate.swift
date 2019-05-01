@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        //MARK" Navigation Bar Apperance Proxy
+        //MARK: Navigation Bar Apperance Proxy
         UINavigationBar.appearance().isTranslucent = false
         UINavigationBar.appearance().barTintColor = .redColor
         UINavigationBar.appearance().tintColor = .white

@@ -8,9 +8,9 @@
 
 import UIKit
 
-class CompaniesController: UITableViewController {
-
-    let companies = [
+class CompaniesController: UITableViewController, CreateCompanyControllerDelegate {
+ 
+    var companies = [
         Company(name: "Apple", founded: Date()),
         Company(name: "Google", founded: Date()),
         Company(name: "Facebook", founded: Date())
@@ -29,16 +29,25 @@ class CompaniesController: UITableViewController {
         tableView.backgroundColor = .darkBlueColor
         tableView.separatorColor = .white
         tableView.tableFooterView = UIView()
+        
     }
     
+    //MARK: Protocol Stub
+    func didAddCompany(company: Company) {
+        companies.append(company)
+        
+        let newIndexPath = IndexPath(row: companies.count - 1, section: 0)
+        tableView.insertRows(at: [newIndexPath], with: .automatic)
+    }
+    
+    
     @objc func handleAddCompany() {
-        print("Adding Company!")
-        
         let createCompanyController = CreateCompanyController()
-        
+
         let navController = CustomNavigationController(rootViewController: createCompanyController)
-        
         present(navController, animated: true, completion: nil)
+        
+        createCompanyController.delegate = self
     }
     
     
@@ -48,9 +57,11 @@ class CompaniesController: UITableViewController {
         return headerView
     }
     
+    
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 50
     }
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellId", for: indexPath)
@@ -64,6 +75,7 @@ class CompaniesController: UITableViewController {
         
         return cell
     }
+    
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return companies.count

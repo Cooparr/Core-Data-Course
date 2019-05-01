@@ -61,14 +61,14 @@
 			isa = PBXGroup;
 			children = (
 				1E44E1DB22789176003B4413 /* AppDelegate.swift */,
-				1E44E1DD22789176003B4413 /* CompaniesController.swift */,
 				1E44E1E222789177003B4413 /* Assets.xcassets */,
 				1E44E1E422789177003B4413 /* LaunchScreen.storyboard */,
 				1E44E1E722789177003B4413 /* Info.plist */,
-				1E44E1EF2278A56D003B4413 /* CustomColors.swift */,
 				1E1663012279978B00BB5957 /* Company.swift */,
+				1E44E1DD22789176003B4413 /* CompaniesController.swift */,
 				1E44E1ED227896CB003B4413 /* CustomNavigationController.swift */,
 				1E16630322799CAA00BB5957 /* CreateCompanyController.swift */,
+				1E44E1EF2278A56D003B4413 /* CustomColors.swift */,
 			);
 			path = "Core Data Course";
 			sourceTree = "<group>";
