@@ -10,16 +10,12 @@ import UIKit
 
 class CompaniesController: UITableViewController, CreateCompanyControllerDelegate {
  
-    var companies = [
-        Company(name: "Apple", founded: Date()),
-        Company(name: "Google", founded: Date()),
-        Company(name: "Facebook", founded: Date())
-    ]
+    var companies = [Company]()
     
     //MARK:- View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
-
+                
         view.backgroundColor = .white
         
         navigationItem.title = "Companies"

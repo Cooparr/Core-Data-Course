@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 protocol CreateCompanyControllerDelegate {
     func didAddCompany(company: Company)
@@ -47,11 +48,33 @@ class CreateCompanyController: UIViewController {
     }
     
     @objc private func handleSave() {
-        dismiss(animated: true) {
-            guard let companyName = self.nameTextField.text else { return }
-            let company = Company(name: companyName, founded: Date())
-            self.delegate?.didAddCompany(company: company)
+        // Init Core Data Stack
+        let persistentContainer = NSPersistentContainer(name: "CoreDataModels")
+        persistentContainer.loadPersistentStores { (storeDescription, err) in
+            // Error Checking
+            if let err = err {
+                fatalError("Failed to load store: \(err)")
+            }
         }
+        
+        let context = persistentContainer.viewContext
+        let company = NSEntityDescription.insertNewObject(forEntityName: "Company", into: context)
+        company.setValue(nameTextField.text, forKey: "name")
+        company.setValue(Date(), forKey: "founded")
+        
+        // Perform Saving of Company
+        do {
+            try context.save()
+        } catch let saveErr {
+            print("Failed to save: \(saveErr)")
+        }
+        
+        
+//        dismiss(animated: true) {
+//            guard let companyName = self.nameTextField.text else { return }
+//            let company = Company(name: companyName, founded: Date())
+//            self.delegate?.didAddCompany(company: company)
+//        }
     }
     
     fileprivate func setupUI(){
