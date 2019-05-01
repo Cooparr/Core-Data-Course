@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  CompaniesController.swift
 //  Core Data Course
 //
 //  Created by Alex Cooper on 30/04/2019.
@@ -8,15 +8,21 @@
 
 import UIKit
 
-class ViewController: UITableViewController {
+class CompaniesController: UITableViewController {
 
+    let companies = [
+        Company(name: "Apple", founded: Date()),
+        Company(name: "Google", founded: Date()),
+        Company(name: "Facebook", founded: Date())
+    ]
+    
     //MARK:- View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
 
         view.backgroundColor = .white
-        setupNavigationStyle()
         
+        navigationItem.title = "Companies"
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "plusImage"), style: .plain, target: self, action: #selector(handleAddCompany))
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cellId")
@@ -27,17 +33,14 @@ class ViewController: UITableViewController {
     
     @objc func handleAddCompany() {
         print("Adding Company!")
+        
+        let createCompanyController = CreateCompanyController()
+        
+        let navController = CustomNavigationController(rootViewController: createCompanyController)
+        
+        present(navController, animated: true, completion: nil)
     }
     
-    //MARK:- Setup Navigation Bar Style
-    fileprivate func setupNavigationStyle() {
-        navigationItem.title = "Companies"
-        navigationController?.navigationBar.isTranslucent = false
-        navigationController?.navigationBar.barTintColor = .redColor
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
-        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
-    }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = UIView()
@@ -51,9 +54,11 @@ class ViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellId", for: indexPath)
-        
         cell.backgroundColor = .tealColor
-        cell.textLabel?.text = "Companies"
+
+        let company = companies[indexPath.row]
+        
+        cell.textLabel?.text = company.name
         cell.textLabel?.textColor = .white
         cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         
@@ -61,6 +66,6 @@ class ViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 8 
+        return companies.count
     }
 }
