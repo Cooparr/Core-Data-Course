@@ -16,6 +16,7 @@
 		1E44E1EE227896CB003B4413 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E44E1ED227896CB003B4413 /* CustomNavigationController.swift */; };
 		1E44E1F02278A56D003B4413 /* CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E44E1EF2278A56D003B4413 /* CustomColors.swift */; };
 		1E89A4812279E0B200D43C45 /* CoreDataModels.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1E89A47F2279E0B200D43C45 /* CoreDataModels.xcdatamodeld */; };
+		1E89A4832279F64900D43C45 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E89A4822279F64900D43C45 /* CoreDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		1E44E1ED227896CB003B4413 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		1E44E1EF2278A56D003B4413 /* CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
 		1E89A4802279E0B200D43C45 /* CoreDataModels.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModels.xcdatamodel; sourceTree = "<group>"; };
+		1E89A4822279F64900D43C45 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 				1E44E1ED227896CB003B4413 /* CustomNavigationController.swift */,
 				1E16630322799CAA00BB5957 /* CreateCompanyController.swift */,
 				1E44E1EF2278A56D003B4413 /* CustomColors.swift */,
+				1E89A4822279F64900D43C45 /* CoreDataManager.swift */,
 				1E89A47F2279E0B200D43C45 /* CoreDataModels.xcdatamodeld */,
 			);
 			path = "Core Data Course";
@@ -152,6 +155,7 @@
 				1E89A4812279E0B200D43C45 /* CoreDataModels.xcdatamodeld in Sources */,
 				1E1663022279978B00BB5957 /* Company.swift in Sources */,
 				1E44E1DC22789176003B4413 /* AppDelegate.swift in Sources */,
+				1E89A4832279F64900D43C45 /* CoreDataManager.swift in Sources */,
 				1E16630422799CAA00BB5957 /* CreateCompanyController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

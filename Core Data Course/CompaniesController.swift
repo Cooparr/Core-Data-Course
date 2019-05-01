@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class CompaniesController: UITableViewController, CreateCompanyControllerDelegate {
  
@@ -15,7 +16,11 @@ class CompaniesController: UITableViewController, CreateCompanyControllerDelegat
     //MARK:- View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
-                
+        
+        
+        fetchCompanies()
+        
+        
         view.backgroundColor = .white
         
         navigationItem.title = "Companies"
@@ -25,21 +30,31 @@ class CompaniesController: UITableViewController, CreateCompanyControllerDelegat
         tableView.backgroundColor = .darkBlueColor
         tableView.separatorColor = .white
         tableView.tableFooterView = UIView()
-        
     }
     
-    //MARK: Protocol Stub
-    func didAddCompany(company: Company) {
-        companies.append(company)
+    //MARK: Fetch Compaines
+    fileprivate func fetchCompanies() {
+        let context = CoreDataManager.shared.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<Company>(entityName: "Company")
         
-        let newIndexPath = IndexPath(row: companies.count - 1, section: 0)
-        tableView.insertRows(at: [newIndexPath], with: .automatic)
+        do {
+            let companies = try context.fetch(fetchRequest)
+            companies.forEach ({ (company) in
+                print(company.name ?? "")
+            })
+            
+            self.companies = companies
+            self.tableView.reloadData()
+            
+        } catch let fetchErr {
+            print("Failed to fetch companies: \(fetchErr)")
+        }
     }
     
-    
+    //MARK: Add Company
     @objc func handleAddCompany() {
         let createCompanyController = CreateCompanyController()
-
+        
         let navController = CustomNavigationController(rootViewController: createCompanyController)
         present(navController, animated: true, completion: nil)
         
@@ -47,6 +62,15 @@ class CompaniesController: UITableViewController, CreateCompanyControllerDelegat
     }
     
     
+    //MARK:- Protocol Stub
+    func didAddCompany(company: Company) {
+        companies.append(company)
+        
+        let newIndexPath = IndexPath(row: companies.count - 1, section: 0)
+        tableView.insertRows(at: [newIndexPath], with: .automatic)
+    }
+    
+    //MARK:- Table View Delegate Functions
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = UIView()
         headerView.backgroundColor = .lightBlueColor
