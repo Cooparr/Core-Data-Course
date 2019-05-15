@@ -17,9 +17,7 @@ class CompaniesController: UITableViewController, CreateCompanyControllerDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         fetchCompanies()
-        
         
         view.backgroundColor = .white
         
@@ -105,6 +103,16 @@ class CompaniesController: UITableViewController, CreateCompanyControllerDelegat
         
         cell.textLabel?.textColor = .white
         cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        
+        
+        
+        if let companyImageData = company.imageData {
+            cell.imageView?.image = UIImage(data: companyImageData)
+        } else {
+            cell.imageView?.image = #imageLiteral(resourceName: "selectEmptyImage")
+        }
+        
+        
         
         return cell
     }

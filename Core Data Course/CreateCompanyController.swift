@@ -19,9 +19,16 @@ class CreateCompanyController: UIViewController, UINavigationControllerDelegate,
     var delegate: CreateCompanyControllerDelegate?
     var company: Company? {
         didSet {
+            
+            guard
+                let founded = company?.founded,
+                let imageData = company?.imageData
+                else { return }
+            
             nameTextField.text = company?.name
-            guard let founded = company?.founded else { return }
             datePicker.date = founded
+            companyImageView.image = UIImage(data: imageData)
+            setupCircularImageStyle()
         }
     }
 
@@ -51,6 +58,7 @@ class CreateCompanyController: UIViewController, UINavigationControllerDelegate,
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.isUserInteractionEnabled = true
         imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleSelectPhoto)))
+        imageView.contentMode = .scaleAspectFill
         return imageView
     }()
     
@@ -102,6 +110,11 @@ class CreateCompanyController: UIViewController, UINavigationControllerDelegate,
         company.setValue(nameTextField.text, forKey: "name")
         company.setValue(datePicker.date, forKey: "founded")
         
+        if let companyImage = companyImageView.image {
+            let imageData = companyImage.jpegData(compressionQuality: 1)
+            company.setValue(imageData, forKey: "imageData")
+        }
+        
         // Perform Saving of Company
         do {
             try context.save()
@@ -121,6 +134,11 @@ class CreateCompanyController: UIViewController, UINavigationControllerDelegate,
         let context = CoreDataManager.shared.persistentContainer.viewContext
         company?.name = nameTextField.text
         company?.founded = datePicker.date
+        
+        if let companyImage = companyImageView.image {
+            let imageData = companyImage.jpegData(compressionQuality: 1)
+            company?.imageData = imageData
+        }
         
         do {
             try context.save()
@@ -169,9 +187,11 @@ class CreateCompanyController: UIViewController, UINavigationControllerDelegate,
         datePicker.bottomAnchor.constraint(equalTo: lightBlueBackgroundView.bottomAnchor).isActive = true
     }
     
+    
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }
+    
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
@@ -179,6 +199,17 @@ class CreateCompanyController: UIViewController, UINavigationControllerDelegate,
         } else if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             companyImageView.image = originalImage
         }
+        
+        setupCircularImageStyle()
+        
         dismiss(animated: true, completion: nil)
+    }
+    
+    
+    private func setupCircularImageStyle() {
+        companyImageView.layer.cornerRadius = companyImageView.frame.width / 2
+        companyImageView.layer.borderColor = UIColor.darkBlueColor.cgColor
+        companyImageView.layer.borderWidth = 1.5
+        companyImageView.clipsToBounds = true
     }
 }
