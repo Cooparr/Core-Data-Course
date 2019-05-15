@@ -14,7 +14,7 @@ protocol CreateCompanyControllerDelegate {
     func didEditCompany(company: Company)
 }
 
-class CreateCompanyController: UIViewController {
+class CreateCompanyController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     var delegate: CreateCompanyControllerDelegate?
     var company: Company? {
@@ -46,6 +46,20 @@ class CreateCompanyController: UIViewController {
         return dP
     }()
     
+    lazy var companyImageView: UIImageView = {
+        let imageView = UIImageView(image: #imageLiteral(resourceName: "selectEmptyImage"))
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.isUserInteractionEnabled = true
+        imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleSelectPhoto)))
+        return imageView
+    }()
+    
+    @objc private func handleSelectPhoto() {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        imagePickerController.allowsEditing = true
+        present(imagePickerController, animated: true, completion: nil)
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -128,15 +142,22 @@ class CreateCompanyController: UIViewController {
         lightBlueBackgroundView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         lightBlueBackgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         lightBlueBackgroundView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        lightBlueBackgroundView.heightAnchor.constraint(equalToConstant: 250).isActive = true
+        lightBlueBackgroundView.heightAnchor.constraint(equalToConstant: 350).isActive = true
 
+        view.addSubview(companyImageView)
+        companyImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 8).isActive = true
+        companyImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        companyImageView.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        companyImageView.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        
         view.addSubview(nameLabel)
-        nameLabel.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        nameLabel.topAnchor.constraint(equalTo: companyImageView.bottomAnchor).isActive = true
         nameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16).isActive = true
         nameLabel.widthAnchor.constraint(equalToConstant: 100).isActive = true
         nameLabel.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
         view.addSubview(nameTextField)
+        nameTextField.topAnchor.constraint(equalTo: nameLabel.topAnchor).isActive = true
         nameTextField.leadingAnchor.constraint(equalTo: nameLabel.trailingAnchor).isActive = true
         nameTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         nameTextField.heightAnchor.constraint(equalTo: nameLabel.heightAnchor).isActive = true
@@ -146,5 +167,18 @@ class CreateCompanyController: UIViewController {
         datePicker.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         datePicker.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         datePicker.bottomAnchor.constraint(equalTo: lightBlueBackgroundView.bottomAnchor).isActive = true
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+            companyImageView.image = editedImage
+        } else if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            companyImageView.image = originalImage
+        }
+        dismiss(animated: true, completion: nil)
     }
 }
