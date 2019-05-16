@@ -23,6 +23,7 @@ class CompaniesController: UITableViewController, CreateCompanyControllerDelegat
         
         navigationItem.title = "Companies"
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "plusImage"), style: .plain, target: self, action: #selector(handleAddCompany))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Reset", style: .plain, target: self, action: #selector(handleReset))
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cellId")
         tableView.backgroundColor = .darkBlueColor
@@ -55,6 +56,28 @@ class CompaniesController: UITableViewController, CreateCompanyControllerDelegat
         createCompanyController.delegate = self
     }
     
+    //MARK: Reset Core Data
+    @objc func handleReset() {
+        let context = CoreDataManager.shared.persistentContainer.viewContext
+        
+        let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: Company.fetchRequest())
+        
+        do {
+            try context.execute(batchDeleteRequest)
+            
+            var indexPathsToRemove = [IndexPath]()
+            
+            for (index, _) in companies.enumerated() {
+                let indexPath = IndexPath(row: index, section: 0)
+                indexPathsToRemove.append(indexPath)
+            }
+            companies.removeAll()
+            tableView.deleteRows(at: indexPathsToRemove, with: .left)
+            
+        } catch let resetErr {
+            print("Failed to delete Company:", resetErr)
+        }
+    }
     
     //MARK:- Protocol Stubs
     func didAddCompany(company: Company) {
@@ -77,6 +100,18 @@ class CompaniesController: UITableViewController, CreateCompanyControllerDelegat
         return headerView
     }
     
+    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let label = UILabel()
+        label.text = "No companies saved!"
+        label.textAlignment = .center
+        label.textColor = .white
+        label.font = UIFont.boldSystemFont(ofSize: 16)
+        return label
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return companies.count == 0 ? 150 : 0
+    }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 50
