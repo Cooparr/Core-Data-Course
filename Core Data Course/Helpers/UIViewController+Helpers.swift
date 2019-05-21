@@ -9,6 +9,20 @@
 import UIKit
 
 extension UIViewController {
+    func setupLightBlueBackgroundView(height: CGFloat) -> UIView{
+        let lightBlueBackgroundView = UIView()
+        lightBlueBackgroundView.backgroundColor = .lightBlueColor
+        
+        view.addSubview(lightBlueBackgroundView)
+        lightBlueBackgroundView.translatesAutoresizingMaskIntoConstraints = false
+        lightBlueBackgroundView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        lightBlueBackgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        lightBlueBackgroundView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        lightBlueBackgroundView.heightAnchor.constraint(equalToConstant: height).isActive = true
+        
+        return lightBlueBackgroundView
+    }
+    
     func setupNavBarPlusButton(selector: Selector) {
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "plusImage"), style: .plain, target: self, action: selector)
     }
