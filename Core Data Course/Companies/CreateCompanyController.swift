@@ -81,18 +81,12 @@ class CreateCompanyController: UIViewController, UINavigationControllerDelegate,
         super.viewDidLoad()
         
         setupUI()
+        setupCancelButton()
         view.backgroundColor = .darkBlueColor
         
         // Nav Bar Button Items
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(handleCancel))
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(handleSave))
     }
-    
-    
-    @objc private func handleCancel() {
-        dismiss(animated: true, completion: nil)
-    }
-    
     
     @objc private func handleSave() {
         if company == nil {

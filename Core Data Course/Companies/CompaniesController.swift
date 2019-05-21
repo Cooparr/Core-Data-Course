@@ -22,7 +22,7 @@ class CompaniesController: UITableViewController {
         view.backgroundColor = .white
         
         navigationItem.title = "Companies"
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "plusImage"), style: .plain, target: self, action: #selector(handleAddCompany))
+        setupNavBarPlusButton(selector: #selector(handleAddCompany))
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Reset", style: .plain, target: self, action: #selector(handleReset))
         
         tableView.register(CompanyCell.self, forCellReuseIdentifier: "cellId")
