@@ -63,15 +63,24 @@ class EmployeesController: UITableViewController, CreateEmployeeControllerDelega
     }
     
     
+    //MARK:- Table View Delegate Functions
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return employees.count
     }
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
         
         let employee = employees[indexPath.row]
+        
+        
         cell.textLabel?.text = employee.name
+        
+        if let taxId = employee.employeeInformation?.taxId {
+            cell.textLabel?.text = "\(employee.name ?? "NoName") - \(taxId)"
+        }
+        
         cell.textLabel?.textColor = .white
         cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 15)
         cell.backgroundColor = .tealColor
