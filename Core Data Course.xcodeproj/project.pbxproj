@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1E1663022279978B00BB5957 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1663012279978B00BB5957 /* Company.swift */; };
 		1E16630422799CAA00BB5957 /* CreateCompanyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E16630322799CAA00BB5957 /* CreateCompanyController.swift */; };
+		1E24B5832298539C00C66690 /* IndentedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E24B5822298539C00C66690 /* IndentedLabel.swift */; };
 		1E44E1DC22789176003B4413 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E44E1DB22789176003B4413 /* AppDelegate.swift */; };
 		1E44E1DE22789176003B4413 /* CompaniesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E44E1DD22789176003B4413 /* CompaniesController.swift */; };
 		1E44E1E322789177003B4413 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E44E1E222789177003B4413 /* Assets.xcassets */; };
@@ -28,6 +29,7 @@
 /* Begin PBXFileReference section */
 		1E1663012279978B00BB5957 /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
 		1E16630322799CAA00BB5957 /* CreateCompanyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCompanyController.swift; sourceTree = "<group>"; };
+		1E24B5822298539C00C66690 /* IndentedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndentedLabel.swift; sourceTree = "<group>"; };
 		1E44E1D822789176003B4413 /* Core Data Course.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Core Data Course.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E44E1DB22789176003B4413 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1E44E1DD22789176003B4413 /* CompaniesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompaniesController.swift; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				1EA0A0CA229449EB0087F61B /* UIViewController+Helpers.swift */,
+				1E24B5822298539C00C66690 /* IndentedLabel.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -191,6 +194,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E24B5832298539C00C66690 /* IndentedLabel.swift in Sources */,
 				1E44E1EE227896CB003B4413 /* CustomNavigationController.swift in Sources */,
 				1EA0A0CD22944AB80087F61B /* CreateEmployeeController.swift in Sources */,
 				1EB0B3DB2294342E00319E27 /* CompaniesController+UITableView.swift in Sources */,
