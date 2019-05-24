@@ -39,7 +39,7 @@ struct CoreDataManager {
     }
     
     //MARK: Fetch Compaines
-    func createEmployee(employeeName: String, company: Company) -> (Employee?, Error?) {
+    func createEmployee(employeeName: String, birthdate: Date, company: Company) -> (Employee?, Error?) {
         let context = persistentContainer.viewContext
 
         // Create Employee
@@ -47,7 +47,8 @@ struct CoreDataManager {
         let employeeInformation = NSEntityDescription.insertNewObject(forEntityName: "EmployeeInformation", into: context) as! EmployeeInformation
         employee.employeeInformation = employeeInformation
         employee.setValue(employeeName, forKey: "name")
-        employee.employeeInformation?.taxId = "11468351"
+        employeeInformation.taxId = "11468351"
+        employeeInformation.birthdate = birthdate
         employee.company = company
         
         do {

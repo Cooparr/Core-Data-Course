@@ -27,7 +27,7 @@
     <elements>
         <element name="Company" positionX="-671.54296875" positionY="-37.640625" width="128" height="103"/>
         <element name="Employee" positionX="-337.75" positionY="-22.703125" width="128" height="103"/>
-        <element name="EmployeeInformation" positionX="-1.57421875" positionY="93.3828125" width="128" height="105"/>
+        <element name="EmployeeInformation" positionX="-1.57421875" positionY="93.3828125" width="128" height="103"/>
         <element name="Address" positionX="-1.6015625" positionY="-172.140625" width="128" height="105"/>
     </elements>
 </model>

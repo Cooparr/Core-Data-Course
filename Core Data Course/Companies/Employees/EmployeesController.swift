@@ -70,8 +70,11 @@ class EmployeesController: UITableViewController, CreateEmployeeControllerDelega
         
         cell.textLabel?.text = employee.name
         
-        if let taxId = employee.employeeInformation?.taxId {
-            cell.textLabel?.text = "\(employee.name ?? "NoName") - \(taxId)"
+        if let birthday = employee.employeeInformation?.birthdate {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "dd MMM, yyyy"
+            
+            cell.textLabel?.text = "\(employee.name ?? "NoName") - \(dateFormatter.string(from: birthday))"
         }
         
         cell.textLabel?.textColor = .white
