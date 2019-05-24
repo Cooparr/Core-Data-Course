@@ -15,6 +15,8 @@ protocol CreateEmployeeControllerDelegate {
 
 class CreateEmployeeController: UIViewController {
     
+    var company: Company?
+    
     var delegate: CreateEmployeeControllerDelegate?
     
     let nameLabel: UILabel = {
@@ -47,8 +49,13 @@ class CreateEmployeeController: UIViewController {
     
     
     @objc func handleSave() {
-        guard let employeeName = nameTextField.text else { return }
-        let tuple = CoreDataManager.shared.createEmployee(employeeName: employeeName)
+        
+        guard
+            let employeeName = nameTextField.text,
+            let company = self.company
+            else { return }
+        
+        let tuple = CoreDataManager.shared.createEmployee(employeeName: employeeName, company: company)
         if let error = tuple.1 {
             let errorAlert = UIAlertController(title: "Error", message: "\(error)", preferredStyle: .alert)
             present(errorAlert, animated: true, completion: nil)
