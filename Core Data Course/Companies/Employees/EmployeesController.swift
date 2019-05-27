@@ -51,7 +51,7 @@ class EmployeesController: UITableViewController, CreateEmployeeControllerDelega
         guard let companyEmployees = company?.employee?.allObjects as? [Employee] else { return }
         shortEmployeeNames = companyEmployees.filter({ (employee) -> Bool in
             if let shortCount = employee.name?.count {
-                return shortCount < 4
+                return shortCount <= 4
             }
             return false
         })
@@ -65,7 +65,7 @@ class EmployeesController: UITableViewController, CreateEmployeeControllerDelega
         
         reallyLongEmployeeNames = companyEmployees.filter({ (employee) -> Bool in
             if let reallyLongCount = employee.name?.count {
-                return reallyLongCount > 9
+                return reallyLongCount >= 9
             }
             return false
         })
@@ -75,11 +75,6 @@ class EmployeesController: UITableViewController, CreateEmployeeControllerDelega
             longEmployeeNames,
             reallyLongEmployeeNames
         ]
-        
-        print(shortEmployeeNames.count)
-        print(longEmployeeNames.count)
-        print(reallyLongEmployeeNames.count)
-        print(allEmployeeNames.count)
     }
     
     

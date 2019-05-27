@@ -39,7 +39,7 @@ struct CoreDataManager {
     }
     
     //MARK: Fetch Compaines
-    func createEmployee(employeeName: String, birthdate: Date, company: Company) -> (Employee?, Error?) {
+    func createEmployee(employeeName: String, birthdate: Date, employeeType: String, company: Company) -> (Employee?, Error?) {
         let context = persistentContainer.viewContext
 
         // Create Employee
@@ -50,6 +50,7 @@ struct CoreDataManager {
         employeeInformation.taxId = "11468351"
         employeeInformation.birthdate = birthdate
         employee.company = company
+        employee.type = employeeType
         
         do {
             try context.save()

@@ -47,6 +47,15 @@ class CreateEmployeeController: UIViewController {
         return textField
     }()
     
+    let employeeTypeSegmentedControl: UISegmentedControl = {
+        let types = ["Executive", "SMT", "Staff"]
+        let segCont = UISegmentedControl(items: types)
+        segCont.selectedSegmentIndex = 0
+        segCont.tintColor = UIColor.darkBlueColor
+        segCont.translatesAutoresizingMaskIntoConstraints = false
+        return segCont
+    }()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,7 +88,9 @@ class CreateEmployeeController: UIViewController {
             return
         }
         
-        let tuple = CoreDataManager.shared.createEmployee(employeeName: employeeName, birthdate: birthdayDate, company: company)
+        guard let employeeType = employeeTypeSegmentedControl.titleForSegment(at: employeeTypeSegmentedControl.selectedSegmentIndex) else { return }
+        
+        let tuple = CoreDataManager.shared.createEmployee(employeeName: employeeName, birthdate: birthdayDate, employeeType: employeeType, company: company)
         
         if let error = tuple.1 {
             let errorAlert = UIAlertController(title: "Error", message: "\(error)", preferredStyle: .alert)
@@ -102,7 +113,7 @@ class CreateEmployeeController: UIViewController {
     
     
     private func setupUI() {
-        _ = setupLightBlueBackgroundView(height: 100)
+        _ = setupLightBlueBackgroundView(height: 150)
         
         view.addSubview(nameLabel)
         nameLabel.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
@@ -127,5 +138,11 @@ class CreateEmployeeController: UIViewController {
         birthdayTextField.leadingAnchor.constraint(equalTo: birthdayLabel.trailingAnchor).isActive = true
         birthdayTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         birthdayTextField.heightAnchor.constraint(equalTo: birthdayLabel.heightAnchor).isActive = true
+        
+        view.addSubview(employeeTypeSegmentedControl)
+        employeeTypeSegmentedControl.topAnchor.constraint(equalTo: birthdayLabel.bottomAnchor).isActive = true
+        employeeTypeSegmentedControl.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16).isActive = true
+        employeeTypeSegmentedControl.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16).isActive = true
+        employeeTypeSegmentedControl.heightAnchor.constraint(equalToConstant: 34).isActive = true
     }
 }
