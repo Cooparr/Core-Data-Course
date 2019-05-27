@@ -16,6 +16,7 @@
 		1E44E1E622789177003B4413 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E44E1E422789177003B4413 /* LaunchScreen.storyboard */; };
 		1E44E1EE227896CB003B4413 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E44E1ED227896CB003B4413 /* CustomNavigationController.swift */; };
 		1E44E1F02278A56D003B4413 /* CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E44E1EF2278A56D003B4413 /* CustomColors.swift */; };
+		1E6AF22A229C076A004BECB3 /* EmployeeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6AF229229C076A004BECB3 /* EmployeeType.swift */; };
 		1E89A4812279E0B200D43C45 /* CoreDataModels.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1E89A47F2279E0B200D43C45 /* CoreDataModels.xcdatamodeld */; };
 		1E89A4832279F64900D43C45 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E89A4822279F64900D43C45 /* CoreDataManager.swift */; };
 		1EA0A0C8229444C80087F61B /* EmployeesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA0A0C7229444C80087F61B /* EmployeesController.swift */; };
@@ -38,6 +39,7 @@
 		1E44E1E722789177003B4413 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1E44E1ED227896CB003B4413 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		1E44E1EF2278A56D003B4413 /* CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
+		1E6AF229229C076A004BECB3 /* EmployeeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeType.swift; sourceTree = "<group>"; };
 		1E89A4802279E0B200D43C45 /* CoreDataModels.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModels.xcdatamodel; sourceTree = "<group>"; };
 		1E89A4822279F64900D43C45 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		1EA0A0C7229444C80087F61B /* EmployeesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesController.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 			children = (
 				1EA0A0CC22944AB80087F61B /* CreateEmployeeController.swift */,
 				1EA0A0C7229444C80087F61B /* EmployeesController.swift */,
+				1E6AF229229C076A004BECB3 /* EmployeeType.swift */,
 			);
 			path = Employees;
 			sourceTree = "<group>";
@@ -209,6 +212,7 @@
 				1E16630422799CAA00BB5957 /* CreateCompanyController.swift in Sources */,
 				1EB0B3D922942FE500319E27 /* CompaniesController+CreateCompany.swift in Sources */,
 				1EA0A0CB229449EB0087F61B /* UIViewController+Helpers.swift in Sources */,
+				1E6AF22A229C076A004BECB3 /* EmployeeType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -48,7 +48,12 @@ class CreateEmployeeController: UIViewController {
     }()
     
     let employeeTypeSegmentedControl: UISegmentedControl = {
-        let types = ["Executive", "SMT", "Staff"]
+        let types = [
+            EmployeeType.Executive.rawValue,
+            EmployeeType.SeniorManagement.rawValue,
+            EmployeeType.Staff.rawValue
+        ]
+        
         let segCont = UISegmentedControl(items: types)
         segCont.selectedSegmentIndex = 0
         segCont.tintColor = UIColor.darkBlueColor
