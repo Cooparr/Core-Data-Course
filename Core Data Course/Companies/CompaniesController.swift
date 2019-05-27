@@ -23,12 +23,34 @@ class CompaniesController: UITableViewController {
         
         navigationItem.title = "Companies"
         setupNavBarPlusButton(selector: #selector(handleAddCompany))
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Reset", style: .plain, target: self, action: #selector(handleReset))
+        
+        navigationItem.leftBarButtonItems = [
+            UIBarButtonItem(title: "Reset", style: .plain, target: self, action: #selector(handleReset)),
+            UIBarButtonItem(title: "Do Work ", style: .plain, target: self, action: #selector(doWork))
+        ]
         
         tableView.register(CompanyCell.self, forCellReuseIdentifier: "cellId")
         tableView.backgroundColor = .darkBlueColor
         tableView.separatorColor = .white
         tableView.tableFooterView = UIView()
+    }
+    
+    
+    // Core Data background Thread Saftey Example
+    @objc private func doWork() {
+        CoreDataManager.shared.persistentContainer.performBackgroundTask { (backgroundContext) in
+            (1...200000).forEach({ (value) in
+                print(value)
+                let company = Company(context: backgroundContext)
+                company.name = String(value)
+            })
+            
+            do {
+                try backgroundContext.save()
+            } catch let err {
+                print("Error saving on background thread", err)
+            }
+        }
     }
     
     
