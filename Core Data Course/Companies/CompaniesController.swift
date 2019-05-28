@@ -26,8 +26,9 @@ class CompaniesController: UITableViewController {
         
         navigationItem.leftBarButtonItems = [
             UIBarButtonItem(title: "Reset", style: .plain, target: self, action: #selector(handleReset)),
-            UIBarButtonItem(title: "Do Work", style: .plain, target: self, action: #selector(doWork)),
-            UIBarButtonItem(title: "Do Updates", style: .plain, target: self, action: #selector(doUpdates))
+            UIBarButtonItem(title: "Work", style: .plain, target: self, action: #selector(doWork)),
+            UIBarButtonItem(title: "Updates", style: .plain, target: self, action: #selector(doUpdates)),
+            UIBarButtonItem(title: "Nested Updates", style: .plain, target: self, action: #selector(doNestedUpdates))
         ]
         
         tableView.register(CompanyCell.self, forCellReuseIdentifier: "cellId")
@@ -89,6 +90,51 @@ class CompaniesController: UITableViewController {
                 print("Error fetching request", err)
             }
             
+        }
+    }
+    
+    @objc private func doNestedUpdates() {
+        // Background Thread
+        DispatchQueue.global(qos: .background).async {
+            
+            // Set privateContexts parent to the Main application context.. 'viewContext'
+            let privateContext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
+            privateContext.parent = CoreDataManager.shared.persistentContainer.viewContext
+            
+            let request: NSFetchRequest<Company> = Company.fetchRequest()
+            request.fetchLimit = 1
+            
+            do {
+                let companies = try privateContext.fetch(request)
+                companies.forEach({ (company) in
+                    print(company.name ?? "")
+                    company.name = "B: \(company.name ?? "")"
+                })
+                
+                do {
+                    try privateContext.save()
+                    // Back to main thread
+                    
+                    DispatchQueue.main.async {
+                        do {
+                            let mainContext = CoreDataManager.shared.persistentContainer.viewContext
+                            if mainContext.hasChanges {
+                                try mainContext.save()
+                            }
+                            
+                        } catch let mainSaveErr {
+                            print("Error when saving to main context:", mainSaveErr)
+                        }
+                        self.tableView.reloadData()
+                    }
+                    
+                } catch let saveErr {
+                    print("Error when saving to private context:", saveErr)
+                }
+                
+            } catch let fetchErr {
+                print("Error fetching request:", fetchErr)
+            }
         }
     }
     
