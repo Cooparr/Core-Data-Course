@@ -49,8 +49,20 @@ class CompaniesAutoUpdateController: UITableViewController, NSFetchedResultsCont
         tableView.backgroundColor = .darkBlueColor
         tableView.register(CompanyCell.self, forCellReuseIdentifier: cellId)
         
-        JSONService.shared.downloadCompaniesFromServer()
+        
+        
+        let refreshControl = UIRefreshControl()
+        refreshControl.tintColor = .white
+        refreshControl.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
+        
+        self.refreshControl = refreshControl
     }
+    
+    @objc private func handleRefresh() {
+        JSONService.shared.downloadCompaniesFromServer()
+        refreshControl?.endRefreshing()
+    }
+    
     
     @objc private func handleAdd() {
         let mainContext = CoreDataManager.shared.persistentContainer.viewContext
@@ -66,8 +78,6 @@ class CompaniesAutoUpdateController: UITableViewController, NSFetchedResultsCont
     }
     
     @objc private func handleDelete() {
-        print("Deleting company..")
-        
         let request: NSFetchRequest<Company> = Company.fetchRequest()
         
 //      Deletes all Companies with a 'B' in their name
@@ -126,6 +136,11 @@ class CompaniesAutoUpdateController: UITableViewController, NSFetchedResultsCont
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let employeeController = EmployeesController()
+        employeeController.company = fetchResultsController.object(at: indexPath)
+        navigationController?.pushViewController(employeeController, animated: true)
+    }
     
     //MARK:- NSFetchResultsController Delegate Functions
     
