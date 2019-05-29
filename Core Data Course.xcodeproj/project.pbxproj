@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E1291FE229EB6A0008A0E8A /* JSONService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1291FD229EB6A0008A0E8A /* JSONService.swift */; };
+		1E129200229EBA0F008A0E8A /* JSONCompany.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1291FF229EBA0F008A0E8A /* JSONCompany.swift */; };
 		1E1663022279978B00BB5957 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1663012279978B00BB5957 /* Company.swift */; };
 		1E16630422799CAA00BB5957 /* CreateCompanyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E16630322799CAA00BB5957 /* CreateCompanyController.swift */; };
 		1E24B5832298539C00C66690 /* IndentedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E24B5822298539C00C66690 /* IndentedLabel.swift */; };
@@ -29,6 +31,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1E1291FD229EB6A0008A0E8A /* JSONService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONService.swift; sourceTree = "<group>"; };
+		1E1291FF229EBA0F008A0E8A /* JSONCompany.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONCompany.swift; sourceTree = "<group>"; };
 		1E1663012279978B00BB5957 /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
 		1E16630322799CAA00BB5957 /* CreateCompanyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCompanyController.swift; sourceTree = "<group>"; };
 		1E24B5822298539C00C66690 /* IndentedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndentedLabel.swift; sourceTree = "<group>"; };
@@ -124,8 +128,10 @@
 				1EB0B3D522941D1A00319E27 /* CompanyCell.swift */,
 				1EB0B3DA2294342E00319E27 /* CompaniesController+UITableView.swift */,
 				1EB0B3D822942FE500319E27 /* CompaniesController+CreateCompany.swift */,
-				1EF276EA229D667600DDBA27 /* CompaniesAutoUpdateController.swift */,
 				1EA0A0CE229464940087F61B /* Employees */,
+				1EF276EA229D667600DDBA27 /* CompaniesAutoUpdateController.swift */,
+				1E1291FD229EB6A0008A0E8A /* JSONService.swift */,
+				1E1291FF229EBA0F008A0E8A /* JSONCompany.swift */,
 			);
 			path = Companies;
 			sourceTree = "<group>";
@@ -209,9 +215,11 @@
 				1E44E1F02278A56D003B4413 /* CustomColors.swift in Sources */,
 				1E89A4812279E0B200D43C45 /* CoreDataModels.xcdatamodeld in Sources */,
 				1EB0B3D622941D1A00319E27 /* CompanyCell.swift in Sources */,
+				1E1291FE229EB6A0008A0E8A /* JSONService.swift in Sources */,
 				1E1663022279978B00BB5957 /* Company.swift in Sources */,
 				1EA0A0C8229444C80087F61B /* EmployeesController.swift in Sources */,
 				1E44E1DC22789176003B4413 /* AppDelegate.swift in Sources */,
+				1E129200229EBA0F008A0E8A /* JSONCompany.swift in Sources */,
 				1E89A4832279F64900D43C45 /* CoreDataManager.swift in Sources */,
 				1E16630422799CAA00BB5957 /* CreateCompanyController.swift in Sources */,
 				1EB0B3D922942FE500319E27 /* CompaniesController+CreateCompany.swift in Sources */,

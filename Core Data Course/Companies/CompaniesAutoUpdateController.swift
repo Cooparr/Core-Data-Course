@@ -49,9 +49,7 @@ class CompaniesAutoUpdateController: UITableViewController, NSFetchedResultsCont
         tableView.backgroundColor = .darkBlueColor
         tableView.register(CompanyCell.self, forCellReuseIdentifier: cellId)
         
-        fetchResultsController.fetchedObjects?.forEach({ (company) in
-            print(company.name ?? "")
-        })
+        JSONService.shared.downloadCompaniesFromServer()
     }
     
     @objc private func handleAdd() {
@@ -71,7 +69,9 @@ class CompaniesAutoUpdateController: UITableViewController, NSFetchedResultsCont
         print("Deleting company..")
         
         let request: NSFetchRequest<Company> = Company.fetchRequest()
-        request.predicate = NSPredicate(format: "name CONTAINS %@", "B")
+        
+//      Deletes all Companies with a 'B' in their name
+//        request.predicate = NSPredicate(format: "name CONTAINS %@", "B")
         
         let context = CoreDataManager.shared.persistentContainer.viewContext
         do {
@@ -157,6 +157,8 @@ class CompaniesAutoUpdateController: UITableViewController, NSFetchedResultsCont
             break
         case .update:
             break
+        @unknown default:
+            fatalError("Uncaught case")
         }
     }
     
@@ -170,6 +172,8 @@ class CompaniesAutoUpdateController: UITableViewController, NSFetchedResultsCont
             tableView.reloadRows(at: [indexPath!], with: .middle)
         case .move:
             tableView.moveRow(at: indexPath!, to: newIndexPath!)
+        @unknown default:
+            fatalError("Uncaught case")
         }
     }
     
