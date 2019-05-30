@@ -94,13 +94,13 @@ class EmployeesController: UITableViewController, CreateEmployeeControllerDelega
         
         let employee = allEmployees[indexPath.section][indexPath.row]
         
-        cell.textLabel?.text = employee.name
+        cell.textLabel?.text = employee.fullName
         
         if let birthday = employee.employeeInformation?.birthdate {
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "dd MMM, yyyy"
             
-            cell.textLabel?.text = "\(employee.name ?? "NoName") - \(dateFormatter.string(from: birthday))"
+            cell.textLabel?.text = "\(employee.fullName ?? "NoName") - \(dateFormatter.string(from: birthday))"
         }
         
         cell.textLabel?.textColor = .white
