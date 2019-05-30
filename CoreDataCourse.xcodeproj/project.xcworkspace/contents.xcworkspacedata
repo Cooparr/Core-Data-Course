@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Core Data Course.xcodeproj">
+      location = "self:/Users/cooper/Documents/App Development/Core Data Course/CoreDataCourse.xcodeproj">
    </FileRef>
 </Workspace>

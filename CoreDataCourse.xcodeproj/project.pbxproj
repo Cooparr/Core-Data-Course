@@ -19,6 +19,8 @@
 		1E44E1EE227896CB003B4413 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E44E1ED227896CB003B4413 /* CustomNavigationController.swift */; };
 		1E44E1F02278A56D003B4413 /* CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E44E1EF2278A56D003B4413 /* CustomColors.swift */; };
 		1E6AF22A229C076A004BECB3 /* EmployeeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6AF229229C076A004BECB3 /* EmployeeType.swift */; };
+		1E7061AC22A00F1300A3327B /* Modelv1.2_2.0.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 1E7061AB22A00F1300A3327B /* Modelv1.2_2.0.xcmappingmodel */; };
+		1E7061AE22A00FBE00A3327B /* CustomMigrationPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7061AD22A00FBE00A3327B /* CustomMigrationPolicy.swift */; };
 		1E89A4812279E0B200D43C45 /* CoreDataModels.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1E89A47F2279E0B200D43C45 /* CoreDataModels.xcdatamodeld */; };
 		1E89A4832279F64900D43C45 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E89A4822279F64900D43C45 /* CoreDataManager.swift */; };
 		1EA0A0C8229444C80087F61B /* EmployeesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA0A0C7229444C80087F61B /* EmployeesController.swift */; };
@@ -36,7 +38,7 @@
 		1E1663012279978B00BB5957 /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
 		1E16630322799CAA00BB5957 /* CreateCompanyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCompanyController.swift; sourceTree = "<group>"; };
 		1E24B5822298539C00C66690 /* IndentedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndentedLabel.swift; sourceTree = "<group>"; };
-		1E44E1D822789176003B4413 /* Core Data Course.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Core Data Course.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E44E1D822789176003B4413 /* CoreDataCourse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataCourse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E44E1DB22789176003B4413 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1E44E1DD22789176003B4413 /* CompaniesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompaniesController.swift; sourceTree = "<group>"; };
 		1E44E1E222789177003B4413 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -47,6 +49,9 @@
 		1E6AF229229C076A004BECB3 /* EmployeeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeType.swift; sourceTree = "<group>"; };
 		1E7061A822A004A900A3327B /* CoreDataModels_v1.1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModels_v1.1.xcdatamodel; sourceTree = "<group>"; };
 		1E7061A922A0065500A3327B /* CoreDataModels_v1.2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModels_v1.2.xcdatamodel; sourceTree = "<group>"; };
+		1E7061AA22A00E7300A3327B /* CoreDataModels_v2.0.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModels_v2.0.xcdatamodel; sourceTree = "<group>"; };
+		1E7061AB22A00F1300A3327B /* Modelv1.2_2.0.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = Modelv1.2_2.0.xcmappingmodel; sourceTree = "<group>"; };
+		1E7061AD22A00FBE00A3327B /* CustomMigrationPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMigrationPolicy.swift; sourceTree = "<group>"; };
 		1E89A4802279E0B200D43C45 /* CoreDataModels.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModels.xcdatamodel; sourceTree = "<group>"; };
 		1E89A4822279F64900D43C45 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		1EA0A0C7229444C80087F61B /* EmployeesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesController.swift; sourceTree = "<group>"; };
@@ -80,7 +85,7 @@
 		1E44E1D922789176003B4413 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1E44E1D822789176003B4413 /* Core Data Course.app */,
+				1E44E1D822789176003B4413 /* CoreDataCourse.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -99,6 +104,7 @@
 				1E44E1EF2278A56D003B4413 /* CustomColors.swift */,
 				1E89A4822279F64900D43C45 /* CoreDataManager.swift */,
 				1E89A47F2279E0B200D43C45 /* CoreDataModels.xcdatamodeld */,
+				1E7061AB22A00F1300A3327B /* Modelv1.2_2.0.xcmappingmodel */,
 			);
 			path = "Core Data Course";
 			sourceTree = "<group>";
@@ -108,6 +114,7 @@
 			children = (
 				1EA0A0CA229449EB0087F61B /* UIViewController+Helpers.swift */,
 				1E24B5822298539C00C66690 /* IndentedLabel.swift */,
+				1E7061AD22A00FBE00A3327B /* CustomMigrationPolicy.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -141,9 +148,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1E44E1D722789176003B4413 /* Core Data Course */ = {
+		1E44E1D722789176003B4413 /* CoreDataCourse */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1E44E1EA22789177003B4413 /* Build configuration list for PBXNativeTarget "Core Data Course" */;
+			buildConfigurationList = 1E44E1EA22789177003B4413 /* Build configuration list for PBXNativeTarget "CoreDataCourse" */;
 			buildPhases = (
 				1E44E1D422789176003B4413 /* Sources */,
 				1E44E1D522789176003B4413 /* Frameworks */,
@@ -153,9 +160,9 @@
 			);
 			dependencies = (
 			);
-			name = "Core Data Course";
+			name = CoreDataCourse;
 			productName = "Core Data Course";
-			productReference = 1E44E1D822789176003B4413 /* Core Data Course.app */;
+			productReference = 1E44E1D822789176003B4413 /* CoreDataCourse.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -173,7 +180,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 1E44E1D322789176003B4413 /* Build configuration list for PBXProject "Core Data Course" */;
+			buildConfigurationList = 1E44E1D322789176003B4413 /* Build configuration list for PBXProject "CoreDataCourse" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -186,7 +193,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1E44E1D722789176003B4413 /* Core Data Course */,
+				1E44E1D722789176003B4413 /* CoreDataCourse */,
 			);
 		};
 /* End PBXProject section */
@@ -219,8 +226,10 @@
 				1EB0B3D622941D1A00319E27 /* CompanyCell.swift in Sources */,
 				1E1291FE229EB6A0008A0E8A /* JSONService.swift in Sources */,
 				1E1663022279978B00BB5957 /* Company.swift in Sources */,
+				1E7061AE22A00FBE00A3327B /* CustomMigrationPolicy.swift in Sources */,
 				1EA0A0C8229444C80087F61B /* EmployeesController.swift in Sources */,
 				1E44E1DC22789176003B4413 /* AppDelegate.swift in Sources */,
+				1E7061AC22A00F1300A3327B /* Modelv1.2_2.0.xcmappingmodel in Sources */,
 				1E129200229EBA0F008A0E8A /* JSONCompany.swift in Sources */,
 				1E89A4832279F64900D43C45 /* CoreDataManager.swift in Sources */,
 				1E16630422799CAA00BB5957 /* CreateCompanyController.swift in Sources */,
@@ -399,7 +408,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1E44E1D322789176003B4413 /* Build configuration list for PBXProject "Core Data Course" */ = {
+		1E44E1D322789176003B4413 /* Build configuration list for PBXProject "CoreDataCourse" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1E44E1E822789177003B4413 /* Debug */,
@@ -408,7 +417,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1E44E1EA22789177003B4413 /* Build configuration list for PBXNativeTarget "Core Data Course" */ = {
+		1E44E1EA22789177003B4413 /* Build configuration list for PBXNativeTarget "CoreDataCourse" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1E44E1EB22789177003B4413 /* Debug */,
@@ -423,11 +432,12 @@
 		1E89A47F2279E0B200D43C45 /* CoreDataModels.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				1E7061AA22A00E7300A3327B /* CoreDataModels_v2.0.xcdatamodel */,
 				1E7061A922A0065500A3327B /* CoreDataModels_v1.2.xcdatamodel */,
 				1E7061A822A004A900A3327B /* CoreDataModels_v1.1.xcdatamodel */,
 				1E89A4802279E0B200D43C45 /* CoreDataModels.xcdatamodel */,
 			);
-			currentVersion = 1E7061A922A0065500A3327B /* CoreDataModels_v1.2.xcdatamodel */;
+			currentVersion = 1E7061AA22A00E7300A3327B /* CoreDataModels_v2.0.xcdatamodel */;
 			path = CoreDataModels.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

@@ -42,6 +42,8 @@ struct JSONService {
                     
                     let company = Company(context: privateContext)
                     company.name = jsonCompany.name
+                    company.numEmployees = "1"
+                    company.imageData = Data()
                     company.founded = foundedDate
                     
                     // Employee forEach

@@ -68,6 +68,7 @@ class CompaniesAutoUpdateController: UITableViewController, NSFetchedResultsCont
         let mainContext = CoreDataManager.shared.persistentContainer.viewContext
         let company = Company(context: mainContext)
         company.name = "Disney"
+        company.numEmployees = "small"
         
         do {
             try mainContext.save()
